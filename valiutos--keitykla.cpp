@@ -24,6 +24,7 @@ int main()
     double rezultatas;
     double bendras;
     double pirkti;
+    double parduoti;
     string pavadinimas;
 
     cout << fixed << setprecision(2);
@@ -61,18 +62,21 @@ int main()
             {
                 bendras = GBP_Bendras;
                 pirkti = GBP_Pirkti;
+                parduoti = GBP_Parduoti;
                 pavadinimas = "GBP";
             }
             else if (valiuta == 2)
             {
                 bendras = USD_Bendras;
                 pirkti = USD_Pirkti;
+                parduoti = USD_Parduoti;
                 pavadinimas = "USD";
             }
             else if (valiuta == 3)
             {
                 bendras = INR_Bendras;
                 pirkti = INR_Pirkti;
+                parduoti = INR_Parduoti;
                 pavadinimas = "INR";
             }
             else
@@ -105,7 +109,19 @@ int main()
                 break;
 
             case 3:
-                cout << "Pardavimas dar nepadarytas." << endl;
+                cout << "Iveskite parduodama " << pavadinimas << " suma: ";
+                cin >> suma;
+                if (suma <= 0)
+                {
+                    cout << "Klaida: suma turi buti teigiama!" << endl;
+                }
+                else
+                {
+                    rezultatas = suma / parduoti;
+                    cout << "Pradine suma: " << suma << " " << pavadinimas << endl;
+                    cout << "Parduodama valiuta: " << pavadinimas << endl;
+                    cout << "Gaunama suma: " << rezultatas << " EUR" << endl;
+                }
                 break;
             }
         }
